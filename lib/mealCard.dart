@@ -14,15 +14,33 @@ class MealCard extends StatelessWidget {
       child: Row(children: [
         Expanded(
           flex: 5,
-          child: Column(children: [
-            Container(
-              padding: const EdgeInsets.all(10),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.network(meal.image),
+          child: Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.network(
+                    meal.image,
+                    loadingBuilder: (BuildContext context, Widget child,
+                        ImageChunkEvent? loadingProgress) {
+                      if (loadingProgress == null) {
+                        return child;
+                      } else {
+                        return const Center(
+                          child: CircularProgressIndicator(
+                            valueColor:
+                                AlwaysStoppedAnimation<Color>(Colors.orange),
+                            strokeWidth: 3,
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ),
               ),
-            ),
-          ]),
+            ],
+          ),
         ),
         Expanded(
           flex: 10,
