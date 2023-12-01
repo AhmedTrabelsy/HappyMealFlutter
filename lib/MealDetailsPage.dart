@@ -50,181 +50,178 @@ class MealDetailsPage extends StatelessWidget {
                                   .textTheme
                                   .titleLarge
                                   ?.copyWith(fontSize: 30)),
-                          // ClipRRect(
-                          //   borderRadius: BorderRadius.circular(10),
-                          //   child: Container(
-                          //     padding: const EdgeInsets.symmetric(
-                          //         vertical: 3, horizontal: 8),
-                          //     color: (dog.gender == 'Male'
-                          //         ? const Color.fromARGB(50, 52, 188, 252)
-                          //         : const Color.fromARGB(50, 252, 52, 52)),
-                          //     child: Text(
-                          //       dog.gender,
-                          //       style: TextStyle(
-                          //         fontSize: 13,
-                          //         color: (dog.gender == "Male"
-                          //             ? Theme.of(context).colorScheme.onPrimary
-                          //             : Theme.of(context).colorScheme.error),
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 3, horizontal: 8),
+                              color: const Color.fromARGB(50, 52, 188, 252),
+                              child: Text(
+                                meal.tags?.first ?? 'Meal',
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary,
+                                ),
+                              ),
+                            ),
+                          ),
                         ]),
-                    // const SizedBox(
-                    //   height: 10,
-                    // ),
-                    // Row(children: [
-                    //   Text(
-                    //     "${meal.age} | ${meal.spec}",
-                    //     style: Theme.of(context).textTheme.titleMedium,
-                    //   ),
-                    // ]),
-                    // const SizedBox(
-                    //   height: 10,
-                    // ),
-                    // Row(
-                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //     children: [
-                    //       Row(
-                    //         children: [
-                    //           const Icon(
-                    //             Icons.location_on,
-                    //             color: Colors.redAccent,
-                    //             size: 16,
-                    //           ),
-                    //           Text(
-                    //             dog.location,
-                    //             style: Theme.of(context).textTheme.labelMedium,
-                    //           ),
-                    //         ],
-                    //       ),
-                    //       Row(
-                    //         children: [
-                    //           const Icon(
-                    //             Icons.access_time,
-                    //             color: Colors.black54,
-                    //             size: 16,
-                    //           ),
-                    //           Text(
-                    //             "12 min ago",
-                    //             style: Theme.of(context).textTheme.labelMedium,
-                    //           ),
-                    //         ],
-                    //       ),
-                    //     ]),
-                    // Padding(
-                    //   padding: const EdgeInsets.only(top: 30),
-                    //   child: Row(
-                    //     children: [
-                    //       Text("About me",
-                    //           style: Theme.of(context)
-                    //               .textTheme
-                    //               .labelMedium
-                    //               ?.copyWith(fontSize: 20))
-                    //     ],
-                    //   ),
-                    // ),
-                    // Padding(
-                    //   padding: const EdgeInsets.only(top: 15),
-                    //   child: Row(
-                    //     children: [
-                    //       Expanded(
-                    //         child: Text(
-                    //           dog.about,
-                    //           style: Theme.of(context).textTheme.titleMedium,
-                    //         ),
-                    //       )
-                    //     ],
-                    //   ),
-                    // ),
-                    // Padding(
-                    //   padding: const EdgeInsets.only(top: 30),
-                    //   child: Row(
-                    //     children: [
-                    //       Text(
-                    //         "Quick Info",
-                    //         style: Theme.of(context)
-                    //             .textTheme
-                    //             .labelMedium
-                    //             ?.copyWith(fontSize: 20),
-                    //       )
-                    //     ],
-                    //   ),
-                    // ),
-                    // Padding(
-                    //   padding: const EdgeInsets.only(top: 15),
-                    //   child: Row(
-                    //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    //     children: [
-                    //       Card(
-                    //         child: Padding(
-                    //           padding: const EdgeInsets.symmetric(
-                    //               vertical: 5, horizontal: 10),
-                    //           child: Column(
-                    //             children: [
-                    //               Text(
-                    //                 "${dog.age} yrs",
-                    //                 style: Theme.of(context)
-                    //                     .textTheme
-                    //                     .labelMedium
-                    //                     ?.copyWith(fontSize: 20),
-                    //               ),
-                    //               Text(
-                    //                 "Age",
-                    //                 style:
-                    //                     Theme.of(context).textTheme.labelMedium,
-                    //               )
-                    //             ],
-                    //           ),
-                    //         ),
-                    //       ),
-                    //       Card(
-                    //         child: Padding(
-                    //           padding: const EdgeInsets.symmetric(
-                    //               vertical: 5, horizontal: 10),
-                    //           child: Column(
-                    //             children: [
-                    //               Text(
-                    //                 dog.color,
-                    //                 style: Theme.of(context)
-                    //                     .textTheme
-                    //                     .labelMedium
-                    //                     ?.copyWith(fontSize: 20),
-                    //               ),
-                    //               Text(
-                    //                 "Color",
-                    //                 style:
-                    //                     Theme.of(context).textTheme.labelMedium,
-                    //               ),
-                    //             ],
-                    //           ),
-                    //         ),
-                    //       ),
-                    //       Card(
-                    //         child: Padding(
-                    //           padding: const EdgeInsets.symmetric(
-                    //               vertical: 5, horizontal: 10),
-                    //           child: Column(
-                    //             children: [
-                    //               Text(
-                    //                 "${dog.weight} kg",
-                    //                 style: Theme.of(context)
-                    //                     .textTheme
-                    //                     .labelMedium
-                    //                     ?.copyWith(fontSize: 20),
-                    //               ),
-                    //               Text(
-                    //                 "Weight",
-                    //                 style:
-                    //                     Theme.of(context).textTheme.labelMedium,
-                    //               )
-                    //             ],
-                    //           ),
-                    //         ),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(children: [
+                      Text(
+                        "${meal.price} DT",
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                    ]),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              const Icon(
+                                Icons.location_on,
+                                color: Colors.redAccent,
+                                size: 16,
+                              ),
+                              Text(
+                                meal.country,
+                                style: Theme.of(context).textTheme.labelMedium,
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              const Icon(
+                                Icons.access_time,
+                                color: Colors.black54,
+                                size: 16,
+                              ),
+                              Text(
+                                "12 Minutes",
+                                style: Theme.of(context).textTheme.labelMedium,
+                              ),
+                            ],
+                          ),
+                        ]),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 30),
+                      child: Row(
+                        children: [
+                          Text("Instructions",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelMedium
+                                  ?.copyWith(fontSize: 20))
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              meal.instructions ?? "",
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 30),
+                      child: Row(
+                        children: [
+                          Text(
+                            "Main Ingredients",
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelMedium
+                                ?.copyWith(fontSize: 20),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Card(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 5, horizontal: 10),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    meal.ingredient1 ?? "None",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .labelMedium
+                                        ?.copyWith(fontSize: 20),
+                                  ),
+                                  Text(
+                                    meal.measure1 ?? "None",
+                                    style:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Card(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 5, horizontal: 10),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    meal.ingredient2 ?? "None",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .labelMedium
+                                        ?.copyWith(fontSize: 20),
+                                  ),
+                                  Text(
+                                    meal.measure2 ?? "None",
+                                    style:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Card(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 5, horizontal: 10),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    meal.ingredient3 ?? "None",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .labelMedium
+                                        ?.copyWith(fontSize: 20),
+                                  ),
+                                  Text(
+                                    meal.measure3 ?? "None",
+                                    style:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ]),
                 ),
               ),
