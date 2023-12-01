@@ -31,66 +31,62 @@ class MealCard extends StatelessWidget {
             child: Column(children: [
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 Text(meal.name, style: Theme.of(context).textTheme.titleLarge),
-                // ClipRRect(
-                //   borderRadius: BorderRadius.circular(10),
-                //   child: Container(
-                //     padding:
-                //         const EdgeInsets.symmetric(vertical: 3, horizontal: 8),
-                //     color: (dog.gender == 'Male'
-                //         ? const Color.fromARGB(50, 52, 188, 252)
-                //         : const Color.fromARGB(50, 252, 52, 52)),
-                //     child: Text(
-                //       dog.gender,
-                //       style: TextStyle(
-                //         fontSize: 13,
-                //         color: (dog.gender == "Male"
-                //             ? Theme.of(context).colorScheme.onPrimary
-                //             : Theme.of(context).colorScheme.error),
-                //       ),
-                //     ),
-                //   ),
-                // ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Container(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 3, horizontal: 8),
+                    color: const Color.fromARGB(50, 52, 188, 252),
+                    child: Text(
+                      meal.tags?.first ?? 'Default',
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                    ),
+                  ),
+                ),
               ]),
-              // const SizedBox(
-              //   height: 10,
-              // ),
-              // Row(children: [
-              //   Text(
-              //     "${dog.age} | ${dog.spec}",
-              //     style: Theme.of(context).textTheme.titleMedium,
-              //   ),
-              // ]),
-              // const SizedBox(
-              //   height: 10,
-              // ),
-              // Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              //   Row(
-              //     children: [
-              //       const Icon(
-              //         Icons.location_on,
-              //         color: Colors.redAccent,
-              //         size: 16,
-              //       ),
-              //       Text(
-              //         dog.location,
-              //         style: Theme.of(context).textTheme.labelMedium,
-              //       ),
-              //     ],
-              //   ),
-              //   Row(
-              //     children: [
-              //       const Icon(
-              //         Icons.access_time,
-              //         color: Colors.black54,
-              //         size: 16,
-              //       ),
-              //       Text(
-              //         "12 min ago",
-              //         style: Theme.of(context).textTheme.labelMedium,
-              //       ),
-              //     ],
-              //   ),
-              // ]),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(children: [
+                Text(
+                  "${meal.price} DT",
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+              ]),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.location_on,
+                      color: Colors.redAccent,
+                      size: 16,
+                    ),
+                    Text(
+                      meal.country,
+                      style: Theme.of(context).textTheme.labelMedium,
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.access_time,
+                      color: Colors.black54,
+                      size: 16,
+                    ),
+                    Text(
+                      "12 min ago",
+                      style: Theme.of(context).textTheme.labelMedium,
+                    ),
+                  ],
+                ),
+              ]),
             ]),
           ),
         ),

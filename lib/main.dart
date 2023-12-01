@@ -86,6 +86,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 id: data.id,
                 name: data.name,
                 image: data.image,
+                country: data.country,
+                price: data.price,
+                tags: data.tags
               );
             }).toList();
 
