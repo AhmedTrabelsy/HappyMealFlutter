@@ -14,12 +14,12 @@ For detailed guidance on Flutter development, check out the [online documentatio
 ## Screenshots
 
 ### Main Page
-![Main Page](Screenshots/main_page.jpg)
+<img src="Screenshots/main_page.jpg" width="400">
 
 Explore a visually appealing main page with a delightful collection of meals. Scroll through and discover your next culinary adventure.
 
 ### Meal Details
-![Meal Details](Screenshots/meal_details.jpg)
+<img src="Screenshots/meal_details.jpg" width="400">
 
 Dive into the details of each meal, from mouth-watering images to intricate descriptions. This app provides an immersive experience for food enthusiasts.
 
