@@ -150,8 +150,8 @@ class MealDetailsPage extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 15),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      child: Wrap(
+                        direction: Axis.horizontal,
                         children: [
                           Card(
                             child: Padding(
