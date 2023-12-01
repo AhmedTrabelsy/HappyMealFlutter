@@ -1,11 +1,12 @@
+import 'dart:ffi';
+
 import 'package:animations/animations.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:restaurent_app/Data/FakeDogDatabase.dart';
-import 'package:restaurent_app/DogDetailsPage.dart';
-import 'package:restaurent_app/dog.dart';
-import 'package:restaurent_app/dogCard.dart';
+import 'package:restaurent_app/MealDetailsPage.dart';
+import 'package:restaurent_app/meal.dart';
+import 'package:restaurent_app/mealCard.dart';
 import 'package:scroll_to_hide/scroll_to_hide.dart';
 
 void main() {
@@ -19,10 +20,10 @@ class PuppyPalace extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'PuppyPalace',
+      title: 'Happy Meals',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromRGBO(98, 67, 20, 1),
+          seedColor: const Color.fromARGB(255, 39, 20, 98),
           onError: const Color.fromARGB(150, 252, 52, 52),
           onPrimary: const Color.fromARGB(150, 52, 188, 252),
         ),
@@ -43,7 +44,7 @@ class PuppyPalace extends StatelessWidget {
                 fontSize: 13,
                 color: Colors.black54)),
       ),
-      home: const MyHomePage(title: 'Puppy Palace'),
+      home: const MyHomePage(title: 'Happy Meals'),
     );
   }
 }
@@ -63,10 +64,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    List<Meal> mealList = [
+    Meal(id: 1, name: "hello!", image: "https://www.themealdb.com/images/media/meals/n3xxd91598732796.jpg"),
+  ];
     final List<Widget> children = [
       const OwnersWidget(),
-      DogList(
-        dogList: dogList,
+      MealList(
+        mealList: mealList,
         scrollController: _scrollController,
       ),
       const NotificationsWidget(),
@@ -109,27 +113,27 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class DogList extends StatelessWidget {
-  final List<Dog> dogList;
+class MealList extends StatelessWidget {
+  final List<Meal> mealList;
   final ScrollController scrollController;
-  const DogList(
-      {super.key, required this.dogList, required this.scrollController});
+  const MealList(
+      {super.key, required this.mealList, required this.scrollController});
 
   @override
   Widget build(BuildContext context) {
     const transitionType = ContainerTransitionType.fade;
 
     return ListView.builder(
-      itemCount: dogList.length,
+      itemCount: mealList.length,
       controller: scrollController,
       itemBuilder: ((context, index) => OpenContainer(
             transitionType: transitionType,
             // transitionDuration: const Duration(seconds: 3),
             closedBuilder: (context, VoidCallback openContainer) =>
-                DogCard(dog: dogList[index]),
+                MealCard(meal: mealList[index]),
             openBuilder: (BuildContext context,
                     void Function({Object? returnValue}) action) =>
-                DogDetailsPage(dog: dogList[index]),
+                MealDetailsPage(meal: mealList[index]),
           )),
     );
   }
@@ -142,7 +146,7 @@ class NotificationsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text("Notifications widget"),
+        child: Text("Categories widget"),
       ),
     );
   }
@@ -155,7 +159,7 @@ class OwnersWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text("Owners widget"),
+        child: Text("Orders widget"),
       ),
     );
   }
