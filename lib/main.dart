@@ -130,8 +130,8 @@ class _MyHomePageState extends State<MyHomePage> {
           // animationDuration: const Duration(milliseconds: 400),
           color: Theme.of(context).colorScheme.inversePrimary,
           items: const [
-            Icon(Icons.person),
-            Icon(Icons.pets),
+            Icon(Icons.sell),
+            Icon(Icons.fastfood),
             Icon(Icons.notifications),
           ],
           onTap: (index) {
