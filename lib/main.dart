@@ -1,10 +1,9 @@
-import 'dart:ffi';
-
 import 'package:animations/animations.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:restaurent_app/MealDetailsPage.dart';
+import 'package:restaurent_app/Services/MealService.dart';
 import 'package:restaurent_app/meal.dart';
 import 'package:restaurent_app/mealCard.dart';
 import 'package:scroll_to_hide/scroll_to_hide.dart';
@@ -62,16 +61,42 @@ class _MyHomePageState extends State<MyHomePage> {
   int currentPageIndex = 1;
   final _scrollController = ScrollController();
 
+  late Future<List<Meal>> futureMeals;
+
+  @override
+  void initState() {
+    super.initState();
+    futureMeals = ApiService.fetchData();
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<Meal> mealList = [
-    Meal(id: 1, name: "hello!", image: "https://www.themealdb.com/images/media/meals/n3xxd91598732796.jpg"),
-  ];
     final List<Widget> children = [
       const OwnersWidget(),
-      MealList(
-        mealList: mealList,
-        scrollController: _scrollController,
+      FutureBuilder(
+        future: futureMeals,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const CircularProgressIndicator();
+          } else if (snapshot.hasError) {
+            return Text('Error: ${snapshot.error}');
+          } else {
+            List<Meal> mealList = (snapshot.data as List<Meal>).map((data) {
+              return Meal(
+                id: data.id,
+                name: data.name,
+                image: data.image,
+              );
+            }).toList();
+
+            return Center(
+              child: MealList(
+                mealList: mealList,
+                scrollController: _scrollController,
+              ),
+            );
+          }
+        },
       ),
       const NotificationsWidget(),
     ];
