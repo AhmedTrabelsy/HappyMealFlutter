@@ -14,14 +14,39 @@ For detailed guidance on Flutter development, check out the [online documentatio
 ## Screenshots
 
 ### Main Page
-<img src="Screenshots/main_page.jpg" width="200">
+![Main Page](Screenshots/main_page.jpg)
 
 Explore a visually appealing main page with a delightful collection of meals. Scroll through and discover your next culinary adventure.
 
 ### Meal Details
-<img src="Screenshots/meal_details.jpg" width="200">
+![Meal Details](Screenshots/meal_details.jpg)
 
 Dive into the details of each meal, from mouth-watering images to intricate descriptions. This app provides an immersive experience for food enthusiasts.
+
+### LoginPage
+![LoginPage](Screenshots/login_page.jpg)
+
+Experience a seamless login process with an intuitive and user-friendly login page.
+
+### RegisterPage
+![RegisterPage](Screenshots/register_page.jpg)
+
+Create a new account easily with the RegisterPage, where you can provide your information and get ready to explore the app.
+
+### VerificationPage
+![VerificationPage](Screenshots/verification_page.jpg)
+
+Verify your account through a secure and straightforward verification process.
+
+### VerificationPageEmail
+![VerificationPageEmail](Screenshots/verification_page_email.jpg)
+
+Confirm your email address with the VerificationPageEmail, ensuring the security of your account.
+
+### SignOutDrawer
+![SignOutDrawer](Screenshots/sign_out_drawer.jpg)
+
+Access the convenient SignOutDrawer to manage your account and sign out securely.
 
 ## How to Run
 
