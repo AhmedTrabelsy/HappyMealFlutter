@@ -24,27 +24,27 @@ Explore a visually appealing main page with a delightful collection of meals. Sc
 Dive into the details of each meal, from mouth-watering images to intricate descriptions. This app provides an immersive experience for food enthusiasts.
 
 ### LoginPage
-<img src="Screenshots/login_page.jpg" width="300">
+<img src="Screenshots/LoginPage.jpg" width="300">
 
 Experience a seamless login process with an intuitive and user-friendly login page.
 
 ### RegisterPage
-<img src="Screenshots/register_page.jpg" width="300">
+<img src="Screenshots/RegisterPage.jpg" width="300">
 
 Create a new account easily with the RegisterPage, where you can provide your information and get ready to explore the app.
 
 ### VerificationPage
-<img src="Screenshots/verification_page.jpg" width="300">
+<img src="Screenshots/VerificationPage.jpg" width="300">
 
 Verify your account through a secure and straightforward verification process.
 
 ### VerificationPageEmail
-<img src="Screenshots/verification_page_email.jpg" width="300">
+<img src="Screenshots/VerificationPageEmail.jpg" width="300">
 
 Confirm your email address with the VerificationPageEmail, ensuring the security of your account.
 
 ### SignOutDrawer
-<img src="Screenshots/sign_out_drawer.jpg" width="300">
+<img src="Screenshots/SignOutDrawer.jpg" width="300">
 
 Access the convenient SignOutDrawer to manage your account and sign out securely.
 
