@@ -111,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         padding: const EdgeInsets.all(20),
         child: Column(children: [
-          isLogged ? _entryField("Name", _controllerName) : const SizedBox(),
+          isLogged ? const SizedBox() : _entryField("Name", _controllerName),
           _entryField("Email", _controllerEmail),
           _entryField("Password", _contorllerPassword),
           const SizedBox(height: 10),
