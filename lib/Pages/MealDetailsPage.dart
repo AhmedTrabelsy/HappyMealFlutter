@@ -1,10 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:restaurent_app/meal.dart';
+import 'package:restaurent_app/Models/meal.dart';
+import 'package:restaurent_app/Services/AuthService.dart';
 
 class MealDetailsPage extends StatelessWidget {
   final Meal meal;
-  const MealDetailsPage({super.key, required this.meal});
+  MealDetailsPage({super.key, required this.meal});
+
+  final User? user = AuthService().currentUser;
 
   @override
   Widget build(BuildContext context) {

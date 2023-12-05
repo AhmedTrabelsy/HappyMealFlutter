@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "36656908864",
+    "project_id": "airy-adapter-387710",
+    "storage_bucket": "airy-adapter-387710.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36656908864:android:3b448ae234a071d3b82da5",
+        "android_client_info": {
+          "package_name": "com.example.restaurent_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbevHxFVwGE8-vHWPEJDEWuw-5iHROKBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

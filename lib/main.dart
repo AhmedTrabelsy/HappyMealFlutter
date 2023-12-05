@@ -1,19 +1,28 @@
 import 'package:animations/animations.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:restaurent_app/MealDetailsPage.dart';
+import 'package:restaurent_app/Pages/MealDetailsPage.dart';
+import 'package:restaurent_app/Pages/loginRegisterPage.dart';
+import 'package:restaurent_app/Services/AuthService.dart';
 import 'package:restaurent_app/Services/MealService.dart';
-import 'package:restaurent_app/meal.dart';
-import 'package:restaurent_app/mealCard.dart';
+import 'package:restaurent_app/Models/meal.dart';
+import 'package:restaurent_app/Components/mealCard.dart';
 import 'package:scroll_to_hide/scroll_to_hide.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
-  runApp(const PuppyPalace());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const RestaurentApp());
 }
 
-class PuppyPalace extends StatelessWidget {
-  const PuppyPalace({super.key});
+class RestaurentApp extends StatelessWidget {
+  const RestaurentApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +52,17 @@ class PuppyPalace extends StatelessWidget {
                 fontSize: 13,
                 color: Colors.black54)),
       ),
-      home: const MyHomePage(title: 'Happy Meals'),
+      // home: const MyHomePage(title: 'Happy Meals'),
+      home: StreamBuilder(
+        stream: AuthService().authStateChanges,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return const MyHomePage(title: 'Happy Meals');
+          } else {
+            return const LoginPage();
+          }
+        },
+      ),
     );
   }
 }
@@ -119,11 +138,12 @@ class _MyHomePageState extends State<MyHomePage> {
         titleTextStyle: const TextStyle(
             fontWeight: FontWeight.bold, fontSize: 25.0, color: Colors.black87),
       ),
-      drawer: const Drawer(),
+      drawer: AppDrawer(),
       body: children[currentPageIndex],
       bottomNavigationBar: ScrollToHide(
         scrollController: _scrollController,
         height: 75,
+        hideDirection: Axis.vertical,
         child: CurvedNavigationBar(
           index: currentPageIndex,
           backgroundColor: Colors.transparent,
@@ -198,4 +218,48 @@ class OwnersWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+class AppDrawer extends StatelessWidget {
+  AppDrawer({super.key});
+  final User? user = AuthService().currentUser;
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          UserAccountsDrawerHeader(
+            accountName: Text(user?.displayName ?? 'User name'),
+            accountEmail: Text(user?.email ?? 'User email'),
+            currentAccountPicture: const CircleAvatar(
+              backgroundImage: AssetImage('assets/images/hamboola.jpg'),
+            ),
+            decoration: BoxDecoration(
+              color: Theme.of(context)
+                  .colorScheme
+                  .primary, // Replace with your desired color
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.logout),
+            title: const Text('Sign out'),
+            onTap: () {
+              signOut();
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings),
+            title: const Text('Settings'),
+            onTap: () {},
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+Future<void> signOut() async {
+  await AuthService().signOut();
 }
