@@ -237,22 +237,23 @@ class AppDrawer extends StatelessWidget {
               backgroundImage: AssetImage('assets/images/hamboola.jpg'),
             ),
             decoration: BoxDecoration(
-              color: Theme.of(context)
-                  .colorScheme
-                  .primary, // Replace with your desired color
+              color: Theme.of(context).colorScheme.primary,
             ),
           ),
+          ListTile(
+            leading: const Icon(Icons.settings),
+            title: const Text('Settings'),
+            onTap: () {
+              throw Exception("Settings not implemented !");
+            },
+          ),
+          const Spacer(),
           ListTile(
             leading: const Icon(Icons.logout),
             title: const Text('Sign out'),
             onTap: () {
               signOut();
             },
-          ),
-          ListTile(
-            leading: const Icon(Icons.settings),
-            title: const Text('Settings'),
-            onTap: () {},
           ),
         ],
       ),

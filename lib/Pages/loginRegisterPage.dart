@@ -14,6 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   bool isLogged = true;
   bool passwordHidden = true;
 
+  final TextEditingController _controllerName = TextEditingController();
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _contorllerPassword = TextEditingController();
 
@@ -31,7 +32,9 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> createUserWithEmailAndPassword() async {
     try {
       await AuthService().createUserWithEmailAndPassword(
-          email: _controllerEmail.text, password: _contorllerPassword.text);
+          name: _controllerName.text,
+          email: _controllerEmail.text,
+          password: _contorllerPassword.text);
     } on FirebaseAuthException catch (e) {
       setState(() {
         errorMessge = e.message;
@@ -108,6 +111,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         padding: const EdgeInsets.all(20),
         child: Column(children: [
+          isLogged ? _entryField("Name", _controllerName) : const SizedBox(),
           _entryField("Email", _controllerEmail),
           _entryField("Password", _contorllerPassword),
           const SizedBox(height: 10),
