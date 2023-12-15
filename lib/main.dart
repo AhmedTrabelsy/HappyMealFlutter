@@ -59,7 +59,7 @@ class RestaurentApp extends StatelessWidget {
           if (snapshot.hasData) {
             return const MyHomePage(title: 'Happy Meals');
           } else {
-            return const LoginPage();
+            return const LoginForm();
           }
         },
       ),
