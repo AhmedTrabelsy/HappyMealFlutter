@@ -5,7 +5,7 @@ import 'package:restaurent_app/Models/meal.dart';
 class ApiService {
   static Future<List<Meal>> fetchData() async {
     final response =
-        await http.get(Uri.parse('http://192.168.42.162:3000/meals'));
+        await http.get(Uri.parse('http://192.168.42.238:3000/meals'));
 
     if (response.statusCode == 200) {
       final List<dynamic> mealListJson = jsonDecode(response.body);
